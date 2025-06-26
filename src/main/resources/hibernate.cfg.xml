@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Kết nối DB -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/product_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">abc123</property>
+
+        <!-- Cấu hình Hibernate -->
+        
+        <!-- Cho Hibernate biết cách viết SQL phù hợp với loại CSDL bạn đang dùng (ở đây là MySQL 8). -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>        
+        <!-- Hiển thị các câu SQL được Hibernate sinh ra trong Console.
+			Rất hữu ích khi debug hoặc muốn hiểu Hibernate đang làm gì. -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- Format (căn chỉnh) câu SQL cho dễ đọc trên console.
+        	Thay vì hiện một dòng dài, SQL sẽ được xuống dòng, thụt lề rõ ràng hơn. -->
+        <property name="hibernate.format_sql">true</property>
+        <!-- Hibernate sẽ tự động tạo hoặc cập nhật bảng trong database 
+        	dựa trên entity @Entity (ở đây là class Product). 
+        	Dành cho trường phái code-first-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mapping đến class -->
+        <mapping class="com.productapp.model.Product"/>
+    </session-factory>
+</hibernate-configuration>
