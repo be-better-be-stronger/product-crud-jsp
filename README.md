@@ -46,6 +46,6 @@ This project is open-source and available under the MIT License.
 ## 🙋‍♂️ Author
 
 ### Đặng Quốc Thanh
-🚀 Aspiring Java Fullstack Developer
-📧 Contact: [Email/Zalo/LinkedIn if desired]
+- 🚀 Aspiring Java Fullstack Developer
+- 📧 Contact: dangquocthanh.la@gmail.com
 
