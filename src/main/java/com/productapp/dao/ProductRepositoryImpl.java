@@ -10,7 +10,7 @@ import com.productapp.model.Product;
 import com.productapp.util.HibernateUtil;
 
 
-public class ProductDAO {
+public class ProductRepositoryImpl implements ProductRepository{
 
     public List<com.productapp.model.Product> findAll() {
     	try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -42,12 +42,11 @@ public class ProductDAO {
           }
     }
 
-    @SuppressWarnings("deprecation")
-	public void insert(Product p) {
+    public void insert(Product p) {
     	Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            session.save(p);
+            session.persist(p);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();
@@ -74,7 +73,7 @@ public class ProductDAO {
     	Transaction tx = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             tx = session.beginTransaction();
-            session.update(p);
+            session.merge(p);
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();

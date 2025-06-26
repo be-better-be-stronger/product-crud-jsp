@@ -94,9 +94,10 @@ public class Product {
 	public LocalDate getCreatedDate() {
 		return createdDate;
 	}
-
-	public void setCreatedDate(LocalDate createdDate) {
-		this.createdDate = createdDate;
+	
+	@PrePersist
+	public void setCreatedDate() {
+		this.createdDate = LocalDate.now();
 	}
 
 	public String getCreatedBy() {
